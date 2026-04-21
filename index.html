@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediBot – AI Medical Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Animated background -->
+  <div class="bg-animation">
+    <div class="bg-circle c1"></div>
+    <div class="bg-circle c2"></div>
+    <div class="bg-circle c3"></div>
+  </div>
+
+  <div class="app-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+        <div class="logo-text">
+          <span class="logo-name">MediBot</span>
+          <span class="logo-sub">AI Health Assistant</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Quick Topics</p>
+        <div class="topic-chips" id="topicChips"></div>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Emergency</p>
+        <div class="emergency-card">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <strong>Emergency: 911</strong>
+            <span>Crisis Line: 988</span>
+            <span>Poison: 1-800-222-1222</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-disclaimer">
+        <i class="fas fa-shield-alt"></i>
+        <p>MediBot provides general health information only. Always consult a qualified healthcare professional for medical advice.</p>
+      </div>
+    </aside>
+
+    <!-- Main Chat Area -->
+    <main class="chat-main">
+
+      <!-- Header -->
+      <header class="chat-header">
+        <div class="header-left">
+          <div class="bot-avatar pulse">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="header-info">
+            <h1>MediBot</h1>
+            <span class="status-dot"></span>
+            <span class="status-text">Online · AI Medical Assistant</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" id="clearBtn" title="Clear chat">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+          <button class="icon-btn" id="themeBtn" title="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Messages -->
+      <div class="chat-messages" id="chatMessages">
+        <!-- Welcome message injected by JS -->
+      </div>
+
+      <!-- Typing indicator -->
+      <div class="typing-indicator" id="typingIndicator">
+        <div class="bot-avatar-sm"><i class="fas fa-robot"></i></div>
+        <div class="typing-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- Suggested questions -->
+      <div class="suggestions" id="suggestions">
+        <button class="suggestion-chip" onclick="sendSuggestion('I have a headache')">🤕 Headache</button>
+        <button class="suggestion-chip" onclick="sendSuggestion('I have a fever')">🌡️ Fever</button>
+        <button class="suggestion-chip" onclick="sendSuggestion('I have a cold')">🤧 Cold</button>
+        <button class="suggestion-chip" onclick="sendSuggestion('I feel anxious')">😰 Anxiety</button>
+        <button class="suggestion-chip" onclick="sendSuggestion('I have back pain')">🦴 Back Pain</button>
+        <button class="suggestion-chip" onclick="sendSuggestion('I have chest pain')">❤️ Chest Pain</button>
+      </div>
+
+      <!-- Input Area -->
+      <div class="chat-input-area">
+        <div class="input-wrapper">
+          <button class="attach-btn" title="Voice input (coming soon)">
+            <i class="fas fa-microphone"></i>
+          </button>
+          <textarea
+            id="userInput"
+            placeholder="Describe your symptoms or ask a health question..."
+            rows="1"
+            maxlength="500"
+          ></textarea>
+          <span class="char-count" id="charCount">0/500</span>
+          <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        <p class="input-disclaimer">
+          <i class="fas fa-info-circle"></i>
+          Not a substitute for professional medical advice. In emergencies, call 911.
+        </p>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
